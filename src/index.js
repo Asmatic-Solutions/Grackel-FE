@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-import {Provide} from "react";
+import {Provider} from "react-redux";
 import {createStore,applyMiddleware} from "redux"
 import thunk from "redux-thunk"
 import Reducers from "./components/Redux/reducers/combineReducers"
@@ -11,11 +11,11 @@ import Reducers from "./components/Redux/reducers/combineReducers"
 const store = createStore(Reducers, applyMiddleware(thunk))
 
 ReactDOM.render(
-  <Provide store={store}>
+  <Provider store={store}>
     <React.StrictMode>
       <App />
     </React.StrictMode>
-  </Provide>,
+  </Provider>,
   document.getElementById('root')
 );
 
