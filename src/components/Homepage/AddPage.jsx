@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import './addPage.scss';
 import ManuallyAdd from './ManuallyAdd';
-import { addDaily } from "../Redux/actions/dailyActions"
+import { addDaily, getDaily } from "../Redux/actions/dailyActions"
 import { getGoal } from "../Redux/actions/goalActions"
 import { useDispatch, connect, useSelector } from "react-redux";
 import { useEffect } from 'react';
@@ -22,9 +22,8 @@ function AddPage(props) {
     Goal:"0"
   })
   
-
   useEffect(()=>{
-    setdailyInformation({...dailyInformation,fetchDaily}) 
+    setdailyInformation({...dailyInformation,...fetchDaily}) 
   },[fetchDaily])
 
   useEffect(()=>{
@@ -33,6 +32,7 @@ function AddPage(props) {
 
   useEffect(()=>{
     dispatch(getGoal()) // Get goal on load
+    dispatch(getDaily()) // Get daily Count on load
   },[])
 
   const AddKcalAmount = () =>{
@@ -46,6 +46,8 @@ function AddPage(props) {
     else
       console.log("Error, add amount out of bounds")
   }
+
+  console.log("daily",dailyInformation)
 
   return (
     <div className="add-meals-page">
