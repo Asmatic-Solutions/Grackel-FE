@@ -9,9 +9,10 @@ export const ADD_DAILY_FAILURE = "ADD_DAILY_FAILURE"
 
 //Add that DAILY
 export const addDaily = (count) =>{
+    console.log("-",count)
     return (dispatch) => {
         dispatch({type:ADD_DAILY_START});
-        axiosWithAuth().put("/goal/daily")
+        axiosWithAuth().post("/goal/daily")
         .then(res=>{
             dispatch({type:ADD_DAILY_SUCCESS,payload:res.data})
         }).catch(err=>{
