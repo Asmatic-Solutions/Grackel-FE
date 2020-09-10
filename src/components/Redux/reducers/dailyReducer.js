@@ -15,7 +15,6 @@ const initialState = {
 }
 
 export const dailyReducer = (state=initialState,action)=>{
-    console.log("---",action.type,action.payload)
     switch(action.type){
         case FETCH_DAILY_START:
             return{...state,};
@@ -26,7 +25,7 @@ export const dailyReducer = (state=initialState,action)=>{
         case ADD_DAILY_START:
             return{...state,};
         case ADD_DAILY_SUCCESS:
-            return{...state}
+            return{...action.payload}
         case ADD_DAILY_FAILURE:
             return{...state,}
         default:
