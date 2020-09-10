@@ -19,7 +19,7 @@ export const dailyReducer = (state=initialState,action)=>{
         case FETCH_DAILY_START:
             return{...state,};
         case FETCH_DAILY_SUCCESS:
-           return{...state}
+           return{...action.payload}
         case FETCH_DAILY_FAILURE:
             return{...state,}
         case ADD_DAILY_START:
