@@ -25,7 +25,7 @@ export const addDaily = (count) =>{
 export const getDaily = () =>{
     return (dispatch) => {
         dispatch({type:FETCH_DAILY_START});
-        axiosWithAuth().get("/daily/daily")
+        axiosWithAuth().get("/goal/daily")
         .then(res=>{
             dispatch({type:FETCH_DAILY_SUCCESS,payload:res.data})
         }).catch(err=>{
