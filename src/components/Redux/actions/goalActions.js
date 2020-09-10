@@ -40,7 +40,7 @@ export const updateGoal = (goal) =>{
 }
 
 //Fetch that goal
-export const getGoal = (count) =>{
+export const getGoal = () =>{
     return (dispatch) => {
         dispatch({type:FETCH_GOAL_START});
         axiosWithAuth().get("/goal")
