@@ -5,6 +5,7 @@ import { addDaily, getDaily } from "../Redux/actions/dailyActions"
 import { getGoal } from "../Redux/actions/goalActions"
 import { useDispatch, connect, useSelector } from "react-redux";
 import { useEffect } from 'react';
+import DailySummary from './DailySummary';
 
 function AddPage(props) {
 
@@ -47,11 +48,9 @@ function AddPage(props) {
       console.log("Error, add amount out of bounds")
   }
 
-  console.log("daily",dailyInformation)
-
   return (
     <div className="add-meals-page">
-        {dailyInformation.Goal}
+        <DailySummary dailyInformation={dailyInformation}/>
         <ManuallyAdd handleKcalChange={handleKcalChange} 
         addKcalAmount={AddKcalAmount}></ManuallyAdd>
     </div>
