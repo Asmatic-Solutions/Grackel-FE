@@ -17,12 +17,11 @@ const initialState = {
 }
 
 export const goalReducer = (state=initialState,action)=>{
-    console.log("---",action.type,action.payload)
     switch(action.type){
         case FETCH_GOAL_START:
             return {...state}
         case FETCH_GOAL_SUCCESS:
-            return {...state}
+            return {...state, Goal:action.payload.Goal}
         case FETCH_GOAL_FAILURE:
             return {...state}
         case CREATE_GOAL_START:
