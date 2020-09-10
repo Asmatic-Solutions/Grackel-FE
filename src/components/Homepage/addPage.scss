@@ -2,7 +2,8 @@
     padding: 1rem 0.2rem;
     display: flex;
     flex-direction: column;
-    .option{
+
+    .wrapper{
         margin-bottom: 1rem;
         border: 1px solid black;
         display: flex;
@@ -10,7 +11,35 @@
         height: 130px;
         justify-content: center;
         align-items: center;
+    }
+    
+    .daily-summary{
+        text-align: center;
+        position: relative;
+        height: 180px;
+        .title{
+            font-size: 18;
+            font-weight: 300;
+        }
+        .counter{
+            font-size: 3.6rem;
+            font-weight: 500;
+            .failed{
+                color: red;
+            }
+            .kcal{
+                font-size: 1.4rem;
+            }
+        }
+        .date{
+            position: absolute;
+            top:0;
+            left:0;
+        }
+    }
 
+
+    .option{
         .title{
             font-size: 2.4rem;
             font-weight: 700;
@@ -47,8 +76,6 @@
                 font-size: 1rem;
             }
         }
-
-
     }
 
 
