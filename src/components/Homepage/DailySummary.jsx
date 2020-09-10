@@ -2,8 +2,6 @@ import React from 'react';
 
 
 function DailySummary({dailyInformation}) {
-    console.log(dailyInformation)
-
     return (
     <div className="daily-summary wrapper">
         <div className="kcalInfo">
