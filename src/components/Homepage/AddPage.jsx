@@ -25,16 +25,18 @@ function AddPage(props) {
   
   useEffect(()=>{
     setdailyInformation({...dailyInformation,...fetchDaily}) 
+    // eslint-disable-next-line
   },[fetchDaily])
 
   useEffect(()=>{
     setdailyInformation({...dailyInformation,Goal:fetchGoal.Goal})
+    // eslint-disable-next-line
   },[fetchGoal])
 
   useEffect(()=>{
     dispatch(getGoal()) // Get goal on load
     dispatch(getDaily()) // Get daily Count on load
-  },[])
+  },[dispatch])
 
   const AddKcalAmount = () =>{
     dispatch(addDaily(kcalAddAmount))
