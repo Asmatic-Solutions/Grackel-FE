@@ -24,17 +24,6 @@ function LoginForm(props){
                         type="text"
                     />
                 </label>
-                {/* <label>
-                    Email 
-                    <input 
-                        value={props.creedentials.email}
-                        onChange={props.handleChange}
-                        name="email"
-                        placeholder="example@example.com"
-                        type="email"
-                    />
-                </label> */}
-
                 <button onClick={props.handleSubmit} name="login">Login</button>
             </form>
         </div>
