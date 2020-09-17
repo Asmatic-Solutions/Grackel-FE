@@ -1,0 +1,57 @@
+.auth-wrapper{
+    width: 80%;
+    margin: 0 auto;
+
+    .form-wrapper{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
+        label{
+            display: flex;
+            flex-direction: column;
+            margin: 1% 0;
+
+            input{
+                border: 1px solid black;
+                border-radius: 4px;
+                margin: 0.5% 0;
+                padding: 0.2rem 0.5rem;
+                font-style: italic;
+                background:none;
+                color: white;
+                &:focus{
+                    outline: none;
+                }
+                &::placeholder{
+                    display: none;
+                    color: rgba(255, 255, 255, 0.75);
+                    letter-spacing: 0.25rem;
+                }
+            }
+            // button{
+            //     background-color: #5B5C5C;
+            //     color: white;
+            //     border: none;
+            //     min-width: 30%;
+            //     font-size: 1rem;
+            // }
+
+
+        }
+        button{
+            margin: 8% 0 2%;
+            // width: 50%;
+            // min-width: 30%;
+            background-color: #5B5C5C;
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+    }
+
+
+
+}
