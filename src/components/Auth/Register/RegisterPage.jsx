@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Redirect, useHistory } from "react-router-dom"
+import { Redirect, useHistory, Link } from "react-router-dom"
 import {axiosWithAuth} from "../../Utils/axiosWithAuth"
 import RegisterForm from "./RegisterForm"
 
@@ -27,12 +27,13 @@ function RegisterPage(){
     }
 
     return(
-        <div>
-            <h1>Register page</h1>
-            {localStorage.getItem("token")
+        localStorage.getItem("token")
             ?<Redirect to="/"/>
-            :<RegisterForm creedentials={creedentials} handleChange={handleChange} handleSubmit={handleSubmit}/>}
-        </div>
+            :<div>
+                <h1>Register page</h1>
+                <RegisterForm creedentials={creedentials} handleChange={handleChange} handleSubmit={handleSubmit}/>
+                Already have an account? <Link to="/login">Click here to log in</Link>
+            </div>
     )
 }
 
