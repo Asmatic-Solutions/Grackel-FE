@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Redirect, useHistory, Link } from "react-router-dom"
 import {axiosWithAuth} from "../../Utils/axiosWithAuth"
 import LoginForm from "./LoginForm"
+import '../Auth.scss';
 
 function LoginPage(){
     const [creedentials,setCreedentials] = useState({username:"",password:""})
@@ -23,10 +24,9 @@ function LoginPage(){
     return(
         localStorage.getItem("token")
         ?<Redirect to="/"/>
-        :<div>
+        :<div className="auth-wrapper login">
             <h1>Login test</h1>
             <LoginForm creedentials={creedentials} handleChange={handleChange} handleSubmit={handleSubmit}/>
-            {/* <p>Click to create a new account here</p> */}
             <Link to="/register">Click to create a new account here</Link>
         </div>
     )
