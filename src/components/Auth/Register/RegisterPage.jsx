@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Redirect, useHistory, Link } from "react-router-dom"
 import {axiosWithAuth} from "../../Utils/axiosWithAuth"
 import RegisterForm from "./RegisterForm"
+import '../Auth.scss';
 
 function RegisterPage(){
     const [creedentials,setCreedentials] = useState({username:"",password:"",email:""})
@@ -29,7 +30,7 @@ function RegisterPage(){
     return(
         localStorage.getItem("token")
             ?<Redirect to="/"/>
-            :<div>
+            :<div className="auth-wrapper register">
                 <h1>Register page</h1>
                 <RegisterForm creedentials={creedentials} handleChange={handleChange} handleSubmit={handleSubmit}/>
                 Already have an account? <Link to="/login">Click here to log in</Link>
