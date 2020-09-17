@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Redirect, useHistory } from "react-router-dom"
+import { Redirect, useHistory, Link } from "react-router-dom"
 import {axiosWithAuth} from "../../Utils/axiosWithAuth"
 import LoginForm from "./LoginForm"
 
@@ -21,13 +21,25 @@ function LoginPage(){
     }
 
     return(
-        <div>
+        localStorage.getItem("token")
+        ?<Redirect to="/"/>
+        :<div>
             <h1>Login test</h1>
-            {localStorage.getItem("token")
-            ?<Redirect to="/"/>
-            :<LoginForm creedentials={creedentials} handleChange={handleChange} handleSubmit={handleSubmit}/>}
+            <LoginForm creedentials={creedentials} handleChange={handleChange} handleSubmit={handleSubmit}/>
+            {/* <p>Click to create a new account here</p> */}
+            <Link to="/register">Click to create a new account here</Link>
         </div>
     )
+        
+
+
+        // <div>
+        //     <h1>Login test</h1>
+        //     {localStorage.getItem("token")
+        //     ?<Redirect to="/"/>
+        //     :<LoginForm creedentials={creedentials} handleChange={handleChange} handleSubmit={handleSubmit}/>}
+        // </div>
+    
 }
 
 export default LoginPage;
