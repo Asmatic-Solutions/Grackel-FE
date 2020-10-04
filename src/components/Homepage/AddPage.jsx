@@ -40,11 +40,15 @@ function AddPage(props) {
 
   const AddKcalAmount = () =>{
     dispatch(addDaily(kcalAddAmount))
+    // setdailyInformation({...dailyInformation, DailyCount:"0"})
   }
 
   const handleKcalChange = (amount) => {
     amount = parseInt(amount.target.value)
-    if (amount>0&&amount<5000)
+    if(Number.isNaN(amount)){
+      amount = 0;
+    }
+    if (amount>=0&&amount<5000)
       setKcalAddAmount(amount)
     else
       console.log("Error, add amount out of bounds")
