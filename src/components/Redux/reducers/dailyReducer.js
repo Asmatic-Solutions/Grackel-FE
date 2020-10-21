@@ -28,7 +28,6 @@ export const dailyReducer = (state=initialState,action)=>{
         case ADD_DAILY_SUCCESS:
             return{...action.payload}
         case ADD_DAILY_FAILURE:
-
             checkToken(action.payload.response.status)
             console.log("--",{state,action})
             return{...state,}
