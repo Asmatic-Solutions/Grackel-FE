@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import './addPage.scss';
+import './HomePage.scss';
 import ManuallyAdd from './ManuallyAdd';
 import { addDaily, getDaily } from "../Redux/actions/dailyActions"
 import { getGoal } from "../Redux/actions/goalActions"
