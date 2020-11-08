@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import './HomePage.scss';
-import ManuallyAdd from './ManuallyAdd';
+import AddKcalManually from './AddKcalManually';
 import { addDaily, getDaily } from "../Redux/actions/dailyActions"
 import { getGoal } from "../Redux/actions/goalActions"
 import { useDispatch, connect, useSelector } from "react-redux";
@@ -57,8 +57,7 @@ function AddPage(props) {
   return (
     <div className="add-meals-page">
         <DailySummary dailyInformation={dailyInformation}/>
-        <ManuallyAdd handleKcalChange={handleKcalChange} 
-        addKcalAmount={AddKcalAmount}></ManuallyAdd>
+        <AddKcalManually handleKcalChange={handleKcalChange} addKcalAmount={AddKcalAmount}></AddKcalManually>
     </div>
   );
 }

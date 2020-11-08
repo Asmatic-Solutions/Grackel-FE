@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginPage from "./components/Auth/Login/LoginPage"
 import RegisterPage from "./components/Auth/Register/RegisterPage"
-import AddPage from "./components/Homepage/AddPage"
+import HomePage from "./components/Homepage/HomePage"
 import './App.scss';
 import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from './components/Utils/PrivateRoute';
@@ -15,7 +15,7 @@ function App() {
         <Route path="/register" component={RegisterPage}/>
 
 
-        <PrivateRoute exact path="/" component={AddPage}/>
+        <PrivateRoute exact path="/" component={HomePage}/>
       </Switch>
     </div>
   );

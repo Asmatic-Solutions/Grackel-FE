@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ManuallyAdd(props) {
+function AddKcalManually(props) {
 
     return (
     <div className="option wrapper add-manually">
@@ -13,4 +13,4 @@ function ManuallyAdd(props) {
     );
 }
 
-export default ManuallyAdd;
+export default AddKcalManually;
