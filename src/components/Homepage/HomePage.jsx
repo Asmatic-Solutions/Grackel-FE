@@ -6,6 +6,7 @@ import { getGoal } from "../Redux/actions/goalActions"
 import { useDispatch, connect, useSelector } from "react-redux";
 import { useEffect } from 'react';
 import DailySummary from './DailySummary';
+import AddMealManually from './AddMealManually';
 
 function AddPage(props) {
 
@@ -58,6 +59,7 @@ function AddPage(props) {
     <div className="add-meals-page">
         <DailySummary dailyInformation={dailyInformation}/>
         <AddKcalManually handleKcalChange={handleKcalChange} addKcalAmount={AddKcalAmount}></AddKcalManually>
+        <AddMealManually></AddMealManually>
     </div>
   );
 }
