@@ -1,3 +1,86 @@
-.add--meal-manually{
+.addMealManually-wrapper{
+    min-height: 100vh;
+    width: 95%;
+    margin: 0 auto;
+    padding: 1rem 0.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
+    .content{
+        background: red;
+        border: 1px solid red;
+        border-radius: 5px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .title{
+            font-size: 5rem;
+            text-align: center;
+        }
+    }
+
+    .form-wrapper{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
+
+        fieldset{
+            border: none;
+            padding: 1rem 0;
+            display: flex;
+            label{
+                margin: 0 1rem 0 0.2rem;
+            }
+        }
+
+        input{
+            border: 1px solid black;
+            border-radius: 4px;
+            margin: 0;
+            padding: 0.2rem 0.5rem;
+            font-style: italic;
+            background: none;
+            color: white;
+            &:focus{
+                outline: none;
+            }
+            &::placeholder{
+                display: none;
+                color: rgba(255, 255, 255, 0.75);
+                letter-spacing: 0.25rem;
+            }
+        }
+
+        .add-ingredient{
+            flex-direction: column;
+            .ingredients{
+                border: 1px solid red;
+                padding: 0.5rem;
+                display: flex;
+                flex-direction: column;
+                .ingredient{
+                    border: 1px solid black;
+                    display: flex;
+                    flex-direction: column;
+                    .controls{
+                        user-select: none;
+                        cursor: pointer;
+                        span{
+                            margin-right: 5rem;
+                        }
+                    }
+                }
+            }
+
+        }
+        
+        
+    }
+
+
+
+
 }

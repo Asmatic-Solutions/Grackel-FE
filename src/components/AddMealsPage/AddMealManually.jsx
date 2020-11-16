@@ -1,14 +1,65 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import "./AddMealManually.scss";
+import AddMealManuallyForm from './AddMealManuallyForm';
 
-function AddMealManuallyPage(props) {
+function AddMealManuallyPage() {
+
+
+    const [meal,setMeal] = useState({
+        type:"",
+        manual:true,
+        manual_Ingredients:[{
+            name: "test",
+            category: "Cat",
+            calories: "123",
+            notes: "Test ingredient"
+        }]
+    });
+
+    useEffect(()=>{
+        // console.log(meal)
+    },[meal])
+
+    const handleChange = (event) => {
+        setMeal({...meal,[event.target.name]:event.target.value})
+    }
+
+    const addIngredient = (ingredient) => {
+        setMeal({...meal,...meal.manual_Ingredients.push(ingredient)})
+    }
+
+    const removeIngredient = (index) => {
+        setMeal({...meal,...meal.manual_Ingredients.splice(index,1)})
+    }
+
+    const updateIngredient = (index,updatedIngredient) => {
+        console.log("editing",index)
+        console.log("ss",updatedIngredient);
+        setMeal({...meal,...meal.manual_Ingredients[index]=updatedIngredient})
+        console.log(meal)
+    }
+
+
 
     return (
-        <div className="add--meal-manually wrapper">
-            <h1>Add meal manually</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus beatae quo aliquam tempora rem veniam odit voluptatibus! Qui rem velit, doloremque eveniet optio impedit voluptas et porro quos recusandae omnis necessitatibus quas unde excepturi totam praesentium autem fugit, dolor eos molestias commodi reprehenderit. Expedita mollitia recusandae hic explicabo quidem. Consequuntur?</p>
+        <div className="addMealManually-wrapper">
+            <div className="content">
+                <h1 className="title">Add meal manually</h1>
+            </div>
+            <AddMealManuallyForm 
+            meal={meal} 
+            handleChange={handleChange} 
+            addIngredient={addIngredient} 
+            removeIngredient={removeIngredient}
+            updateIngredient={updateIngredient}
+            ></AddMealManuallyForm>
         </div>
     );
+
+
+
 }
 
 export default AddMealManuallyPage;
