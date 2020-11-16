@@ -8,10 +8,10 @@ import {
 } from "../actions/dailyActions"
 
 const initialState = {
-    User_ID:"",
-    Date:"",
-    DailyCount:"",
-    Success:true,
+    user_id:"",
+    date:"",
+    daily_count:"",
+    success:true,
 }
 
 export const dailyReducer = (state=initialState,action)=>{
@@ -29,7 +29,6 @@ export const dailyReducer = (state=initialState,action)=>{
             return{...action.payload}
         case ADD_DAILY_FAILURE:
             checkToken(action.payload.response.status)
-            console.log("--",{state,action})
             return{...state,}
         default:
             return state

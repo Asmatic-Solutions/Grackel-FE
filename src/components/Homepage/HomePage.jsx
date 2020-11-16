@@ -17,11 +17,11 @@ function AddPage(props) {
 
   const [kcalAddAmount,setKcalAddAmount] = useState(0);
   const [dailyInformation,setdailyInformation] = useState({
-    DailyCount: 0,
-    Date: "",
-    Success: false,
-    User_ID: 1,
-    Goal:"0"
+    daily_count: 0,
+    date: "",
+    success: false,
+    user_id: 1,
+    goal:"0"
   })
   
   useEffect(()=>{
@@ -30,7 +30,7 @@ function AddPage(props) {
   },[fetchDaily])
 
   useEffect(()=>{
-    setdailyInformation({...dailyInformation,Goal:fetchGoal.Goal})
+    setdailyInformation({...dailyInformation,goal:fetchGoal.goal})
     // eslint-disable-next-line
   },[fetchGoal])
 

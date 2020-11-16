@@ -13,7 +13,7 @@ import {
 
 const initialState = {
     message:"",
-    Goal:"",
+    goal:"",
 }
 
 export const goalReducer = (state=initialState,action)=>{
@@ -21,7 +21,7 @@ export const goalReducer = (state=initialState,action)=>{
         case FETCH_GOAL_START:
             return {...state}
         case FETCH_GOAL_SUCCESS:
-            return {...state, Goal:action.payload.Goal}
+            return {...state, goal:action.payload.goal}
         case FETCH_GOAL_FAILURE:
             return {...state}
         case CREATE_GOAL_START:
