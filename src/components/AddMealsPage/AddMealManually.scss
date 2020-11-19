@@ -56,28 +56,27 @@
 
         .add-ingredient{
             flex-direction: column;
-            .ingredients{
-                border: 1px solid red;
-                padding: 0.5rem;
-                display: flex;
-                flex-direction: column;
-                .ingredient{
-                    border: 1px solid black;
-                    display: flex;
-                    flex-direction: column;
-                    .controls{
-                        user-select: none;
-                        cursor: pointer;
-                        span{
-                            margin-right: 5rem;
-                        }
-                    }
+        }
+    }
+
+    .ingredients{
+        border: 1px solid red;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .ingredient{
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            .controls{
+                user-select: none;
+                cursor: pointer;
+                span{
+                    margin-right: 5rem;
                 }
             }
-
         }
-        
-        
     }
 
 

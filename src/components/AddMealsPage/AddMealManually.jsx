@@ -1,16 +1,17 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import "./AddMealManually.scss";
+import React,{ useState } from 'react';
 import AddMealManuallyForm from './AddMealManuallyForm';
+import CustomIngredient from './CustomIngredient';
+import "./AddMealManually.scss";
+import {addMeal} from "../Redux/actions/mealsActions"
+import { useDispatch, connect, useSelector } from "react-redux";
 
 function AddMealManuallyPage() {
 
-
+    const dispatch = useDispatch();
     const [meal,setMeal] = useState({
         type:"",
         manual:true,
-        manual_Ingredients:[{
+        manual_ingredients:[{
             name: "test",
             category: "Cat",
             calories: "123",
@@ -18,30 +19,27 @@ function AddMealManuallyPage() {
         }]
     });
 
-    useEffect(()=>{
-        // console.log(meal)
-    },[meal])
-
     const handleChange = (event) => {
         setMeal({...meal,[event.target.name]:event.target.value})
     }
 
     const addIngredient = (ingredient) => {
-        setMeal({...meal,...meal.manual_Ingredients.push(ingredient)})
+        setMeal({...meal,...meal.manual_ingredients.push(ingredient)})
     }
 
     const removeIngredient = (index) => {
-        setMeal({...meal,...meal.manual_Ingredients.splice(index,1)})
+        setMeal({...meal,...meal.manual_ingredients.splice(index,1)})
     }
 
     const updateIngredient = (index,updatedIngredient) => {
-        console.log("editing",index)
-        console.log("ss",updatedIngredient);
-        setMeal({...meal,...meal.manual_Ingredients[index]=updatedIngredient})
-        console.log(meal)
+        setMeal({...meal,...meal.manual_ingredients[index]=updatedIngredient})
     }
 
-
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        dispatch(addMeal(meal));
+        console.log("submiting")
+    }
 
     return (
         <div className="addMealManually-wrapper">
@@ -55,11 +53,15 @@ function AddMealManuallyPage() {
             removeIngredient={removeIngredient}
             updateIngredient={updateIngredient}
             ></AddMealManuallyForm>
+
+            <div className="ingredients">
+                <h1>Ingredients</h1>
+                {meal.manual_ingredients.map((ingredient,i)=>
+                <CustomIngredient key={i} ingredient={ingredient} index={i} updateIngredient={updateIngredient}/>
+                )}
+            </div>
+            <button onClick={handleSubmit}>Add meal</button>
         </div>
     );
-
-
-
 }
-
-export default AddMealManuallyPage;
+export default connect(null,{addMeal})(AddMealManuallyPage)
