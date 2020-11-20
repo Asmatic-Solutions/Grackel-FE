@@ -13,7 +13,7 @@ export const CREATE_MEAL_FAILURE = "CREATE_MEAL_FAILURE"
 export const addMeal = (meal) =>{
     return (dispatch) => {
         dispatch({type:CREATE_MEAL_START});
-        axiosWithAuth().post("/meals",{meals})
+        axiosWithAuth().post("/meal",{meal})
         .then(res=>{
             dispatch({type:CREATE_MEAL_SUCCESS,payload:res.data})
         }).catch(err=>{
