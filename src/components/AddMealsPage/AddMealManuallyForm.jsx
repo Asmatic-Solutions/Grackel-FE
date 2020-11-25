@@ -1,7 +1,7 @@
 import React,{ useState } from "react";
 
 
-function AddMealManuallyForm({handleChange,meal,addIngredient,removeIngredient,updateIngredient}){
+function AddMealManuallyForm({addIngredient}){
     const [ingredient,setIngredient]  = useState({
         name:"",
         category:"",

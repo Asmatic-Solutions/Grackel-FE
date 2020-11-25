@@ -4,6 +4,8 @@ import CustomIngredient from './CustomIngredient';
 import "./AddMealManually.scss";
 import {addMeal} from "../Redux/actions/mealsActions"
 import { useDispatch, connect, useSelector } from "react-redux";
+import MealTypeForm from './MealTypeForm';
+import { useEffect } from 'react';
 
 function AddMealManuallyPage() {
 
@@ -20,7 +22,7 @@ function AddMealManuallyPage() {
     });
 
     const handleChange = (event) => {
-        setMeal({...meal,[event.target.name]:event.target.value})
+        setMeal({...meal,[event.target.name]:event.target.value});
     }
 
     const addIngredient = (ingredient) => {
@@ -41,25 +43,23 @@ function AddMealManuallyPage() {
         console.log("submiting")
     }
 
+    useEffect(()=>{
+        console.log({meal})
+    },[meal])
+
     return (
         <div className="addMealManually-wrapper">
             <div className="content">
                 <h1 className="title">Add meal manually</h1>
             </div>
-            <AddMealManuallyForm 
-            meal={meal} 
-            handleChange={handleChange} 
-            addIngredient={addIngredient} 
-            removeIngredient={removeIngredient}
-            updateIngredient={updateIngredient}
-            ></AddMealManuallyForm>
-
+            <MealTypeForm handleChange={handleChange}/>
             <div className="ingredients">
                 <h1>Ingredients</h1>
                 {meal.manual_ingredients.map((ingredient,i)=>
                 <CustomIngredient key={i} ingredient={ingredient} index={i} updateIngredient={updateIngredient}/>
                 )}
             </div>
+            <AddMealManuallyForm addIngredient={addIngredient}></AddMealManuallyForm>
             <button onClick={handleSubmit}>Add meal</button>
         </div>
     );
