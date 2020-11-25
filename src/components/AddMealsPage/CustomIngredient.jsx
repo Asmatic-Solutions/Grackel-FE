@@ -1,7 +1,7 @@
 import React from "react"
 import { useEffect } from "react";
 import { useState } from "react";
-function CustomIngredient({ingredient, index, updateIngredient}){
+function CustomIngredient({ingredient, index, updateIngredient, removeIngredient}){
 
     const [editing,setEditing] = useState(false);
     const [edited,setEdited] = useState({})
@@ -20,9 +20,9 @@ function CustomIngredient({ingredient, index, updateIngredient}){
     }
 
     const handleSubmit = (e) =>{
+        e.preventDefault();
         toggleEdit();
         updateIngredient(index,edited);
-        console.log(edited,ingredient);
     }
 
     const handleCancel = () => {
@@ -40,7 +40,7 @@ function CustomIngredient({ingredient, index, updateIngredient}){
             </div>
             <div className="controls">
                 {editing?<button onClick={handleSubmit}>Save</button>:<span onClick={toggleEdit}>Edit</span>}
-                {editing?<button onClick={handleCancel}>Cancel</button>:<span>Remove</span>}
+                {editing?<button onClick={handleCancel}>Cancel</button>:<span onClick={(e)=>{removeIngredient(e,ingredient)}}>Remove</span>}
                 
             </div>
         </div>

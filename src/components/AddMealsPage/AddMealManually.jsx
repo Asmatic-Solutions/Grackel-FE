@@ -12,40 +12,43 @@ function AddMealManuallyPage() {
     const dispatch = useDispatch();
     const [meal,setMeal] = useState({
         type:"",
-        manual:true,
-        manual_ingredients:[{
-            name: "test",
-            category: "Cat",
-            calories: "123",
-            notes: "Test ingredient"
-        }]
+        manual:true
     });
+    const [manual_ingredients,setManual_ingredients] = useState([{
+        calories: "wec",
+        category: "ecw",
+        name: "cewvfvfvfvfvsdvgfnrtnednyternwec",
+        notes: "wec"
+    }]);
 
     const handleChange = (event) => {
         setMeal({...meal,[event.target.name]:event.target.value});
     }
 
     const addIngredient = (ingredient) => {
-        setMeal({...meal,...meal.manual_ingredients.push(ingredient)})
+        setManual_ingredients([...manual_ingredients,ingredient]);
     }
 
-    const removeIngredient = (index) => {
-        setMeal({...meal,...meal.manual_ingredients.splice(index,1)})
+    const removeIngredient = (event,ingredient) => {
+        event.preventDefault();
+        setManual_ingredients([...manual_ingredients.filter(_ingredient=>{return _ingredient !== ingredient})]);
     }
 
     const updateIngredient = (index,updatedIngredient) => {
-        setMeal({...meal,...meal.manual_ingredients[index]=updatedIngredient})
+        let ingreds = [...manual_ingredients]; // create copy of custom ingredients
+        ingreds[index] = {...updatedIngredient}; // Change the updated ingredient
+        setManual_ingredients(ingreds); // Set state for new ingredient
     }
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        dispatch(addMeal(meal));
-        console.log("submiting")
+        // dispatch(addMeal({meal,manual_ingredients}));
+        console.log("submiting",{meal,manual_ingredients})
     }
 
     useEffect(()=>{
-        console.log({meal})
-    },[meal])
+        console.log({meal,manual_ingredients})
+    },[meal,manual_ingredients])
 
     return (
         <div className="addMealManually-wrapper">
@@ -55,8 +58,8 @@ function AddMealManuallyPage() {
             <MealTypeForm handleChange={handleChange}/>
             <div className="ingredients">
                 <h1>Ingredients</h1>
-                {meal.manual_ingredients.map((ingredient,i)=>
-                <CustomIngredient key={i} ingredient={ingredient} index={i} updateIngredient={updateIngredient}/>
+                {manual_ingredients.map((ingredient,i)=>
+                <CustomIngredient key={i} ingredient={ingredient} index={i} updateIngredient={updateIngredient} removeIngredient={removeIngredient}/> 
                 )}
             </div>
             <AddMealManuallyForm addIngredient={addIngredient}></AddMealManuallyForm>
