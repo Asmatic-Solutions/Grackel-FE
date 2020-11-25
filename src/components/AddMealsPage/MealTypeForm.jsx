@@ -5,7 +5,7 @@ function MealTypeForm({handleChange}){
         <form className="meal-type-form form-wrapper">
             <fieldset className="type">
                 <select defaultValue="title" name="type" onChange={(e)=>{handleChange(e)}}>
-                    <option value="title" disabled >Meal type</option> 
+                    <option value="title" disabled style={{display:"none"}}>Meal type</option> 
                     <option value="breakfast">Breakfast</option>
                     <option value="lunch">Lunch</option>
                     <option value="dinner">Dinner</option>
