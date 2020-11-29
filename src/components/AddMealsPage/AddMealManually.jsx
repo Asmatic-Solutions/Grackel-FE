@@ -3,9 +3,8 @@ import AddMealManuallyForm from './AddMealManuallyForm';
 import CustomIngredient from './CustomIngredient';
 import "./AddMealManually.scss";
 import {addMeal} from "../Redux/actions/mealsActions"
-import { useDispatch, connect, useSelector } from "react-redux";
+import { useDispatch, connect } from "react-redux";
 import MealTypeForm from './MealTypeForm';
-import { useEffect } from 'react';
 import AddIcon from "../Icons/AddIcon"
 
 function AddMealManuallyPage() {
@@ -39,13 +38,9 @@ function AddMealManuallyPage() {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        dispatch(addMeal({meal,manual_ingredients}));
-        console.log("submiting",{meal,manual_ingredients})
+        console.log("meal",{...meal,manual_ingredients})
+        dispatch(addMeal({...meal,manual_ingredients}));
     }
-
-    useEffect(()=>{
-        console.log({meal,manual_ingredients})
-    },[meal,manual_ingredients])
 
     return (
         <div className="addMealManually-wrapper">
@@ -53,8 +48,6 @@ function AddMealManuallyPage() {
             <h1 className="title">Add meal manually</h1>
 
             <MealTypeForm handleChange={handleChange}/>
-            {}
-
             <button onClick={handleSubmit} disabled={manual_ingredients.length>0?false:true}>Add meal</button>
 
             <div className="container">
