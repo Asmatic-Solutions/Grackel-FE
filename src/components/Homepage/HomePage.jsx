@@ -1,11 +1,12 @@
 import React,{useState} from 'react';
-import './addPage.scss';
-import ManuallyAdd from './ManuallyAdd';
+import './HomePage.scss';
+import AddKcalManually from './AddKcalManually';
 import { addDaily, getDaily } from "../Redux/actions/dailyActions"
 import { getGoal } from "../Redux/actions/goalActions"
 import { useDispatch, connect, useSelector } from "react-redux";
 import { useEffect } from 'react';
 import DailySummary from './DailySummary';
+import AddMealManually from './AddMealManually';
 
 function AddPage(props) {
 
@@ -16,11 +17,11 @@ function AddPage(props) {
 
   const [kcalAddAmount,setKcalAddAmount] = useState(0);
   const [dailyInformation,setdailyInformation] = useState({
-    DailyCount: 0,
-    Date: "",
-    Success: false,
-    User_ID: 1,
-    Goal:"0"
+    daily_count: 0,
+    date: "",
+    success: false,
+    user_id: 1,
+    goal:"0"
   })
   
   useEffect(()=>{
@@ -29,7 +30,7 @@ function AddPage(props) {
   },[fetchDaily])
 
   useEffect(()=>{
-    setdailyInformation({...dailyInformation,Goal:fetchGoal.Goal})
+    setdailyInformation({...dailyInformation,goal:fetchGoal.goal})
     // eslint-disable-next-line
   },[fetchGoal])
 
@@ -57,8 +58,8 @@ function AddPage(props) {
   return (
     <div className="add-meals-page">
         <DailySummary dailyInformation={dailyInformation}/>
-        <ManuallyAdd handleKcalChange={handleKcalChange} 
-        addKcalAmount={AddKcalAmount}></ManuallyAdd>
+        <AddKcalManually handleKcalChange={handleKcalChange} addKcalAmount={AddKcalAmount}></AddKcalManually>
+        <AddMealManually></AddMealManually>
     </div>
   );
 }

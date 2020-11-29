@@ -1,0 +1,178 @@
+.addMealManually-wrapper{
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .wrapper{
+        width: 90%;
+        max-width: 90%;
+    }
+
+    fieldset{
+        border: none;
+    }
+
+    .meal-type-form{
+        margin: 2.5rem auto 0.5rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 1.8rem;
+
+        select{
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            &:focus{
+                outline: none;
+            }
+        }
+
+        input[type=checkbox]{
+            transform: scale(1.2);
+            margin: 0.3rem 0.2rem 0 0;
+        }
+    }
+
+
+    .container{
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        background: #183252;
+        width: 100%;
+        margin-top: 2.5rem;
+        min-height: 100vh;
+        padding-top: 1rem;
+        padding-bottom: 5rem;
+        position: relative;
+        text-align: center;
+        h1{
+            font-size: 3.2rem;
+        }
+        .ingredients{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(130px,0.5fr));
+            grid-auto-rows: 180px;
+            grid-gap: 0.5rem;
+            width: 95%;
+            padding:0.5rem;
+            margin: 0 auto;
+            @media (min-width:600px) {
+                grid-template-columns: repeat(auto-fit,minmax(250px,0.5fr));
+                grid-auto-rows: 200px;
+            }
+            .ingredient{
+                border-radius: 5px;
+                background-color: rgba(0, 0, 0, 0.25);
+                padding:0.5rem;
+                text-align: left;
+                overflow-wrap: break-word;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                input{
+                    width: 90%;
+                    padding: 0.2rem 0.5rem;
+                    color: white;
+                    margin-bottom: 0.5rem;
+                    border-radius: 20px;
+                    border: none;
+                    outline: none;
+                    background: rgba(0, 0, 0, 0.5);
+                }
+                button{
+                    border-radius: 20px;
+                    
+                }
+                svg{
+                    fill: white;
+                }
+                &.add{
+                    background-color: rgba(0, 0, 0, 0.5);
+                    text-align: center;
+                    svg{
+                        margin: 0 auto;
+                        height: 48px;
+                        width: 48px;
+                    }
+                }
+                .controls{
+                    margin-top: auto;
+                    svg{
+                        height: 2.8rem;
+                    }
+                    button{
+                        margin-right: 1rem;
+                        border: none;
+                        padding: 0.5rem 1.5rem;
+                    }
+                }
+            }
+        }
+        .add-meal-form{
+            position: absolute;
+            background-color: #183252fb;
+            top: 20px;
+            left: 0;
+            height: 55%;
+            width: 99%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .exitIcon{
+                top: 20px;
+                right: 20px;
+                position: absolute;
+                border: none;
+                background: none;
+                color: white;
+                font-weight: 700;
+                font-size: 2rem;
+            }
+            .add-ingredient{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 80%;
+                margin: 0 auto;
+                label{
+                    width: 100%;
+                    text-align: left;
+                    font-size: 1.8rem;
+                    margin: 0.5rem 0rem 0.1rem -1.5rem;
+                }
+                input{
+                    width: 100%;
+                    padding: 0.5rem 1.5rem;
+                    margin-bottom: 2.5rem;
+                    border-radius: 20px;
+                    border: none;
+                    outline: none;
+                    color: white;
+                    background: rgba(0, 0, 0, 0.5);
+                }
+                .addProduct{
+                    background: none;
+                    color: white;
+                    font-size: 1.8rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.4rem;
+                    border: none;
+                    padding: 1rem 3.5rem;
+                    transition: all 0.5s ease-in-out;
+                    outline: none;
+                    &:focus{
+                        color: rgb(194, 194, 194);
+                    }
+                }
+            }
+        }
+    }
+
+
+
+}
