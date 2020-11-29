@@ -1,7 +1,7 @@
 import React,{ useState } from "react";
 
 
-function AddMealManuallyForm({addIngredient}){
+function AddMealManuallyForm({addIngredient, setIngredientInput}){
     const [ingredient,setIngredient]  = useState({
         name:"",
         category:"",
@@ -11,8 +11,11 @@ function AddMealManuallyForm({addIngredient}){
 
     const handleNewIngredient = (e) => {
         e.preventDefault();
-        addIngredient(ingredient);
-        setIngredient({name:"",category:"",calories:"",notes:""});
+        if(ingredient.name!=""){
+            addIngredient(ingredient);
+            setIngredient({name:"",category:"",calories:"",notes:""});
+            setIngredientInput(false)
+        } 
     }
 
     const handleIngredient = (e)=>{
@@ -20,17 +23,18 @@ function AddMealManuallyForm({addIngredient}){
     }
 
     return(
-        <form className="Add-meal-manually-form form-wrapper">
+        <form className="add-meal-form form-wrapper">
+            <button type="button" className="exitIcon" onClick={()=>{setIngredientInput(false)}}>X</button>
             <fieldset className="add-ingredient" onSubmit={handleNewIngredient}>
                 <label htmlFor="Name">Name</label>
-                <input type="text" value={ingredient.name} name="name" onChange={handleIngredient}/>
+                <input type="text" value={ingredient.name} name="name" onChange={handleIngredient} required autoComplete="off"/>
                 <label htmlFor="Category">Category</label>
-                <input type="text" value={ingredient.category} name="category" onChange={handleIngredient}/>
+                <input type="text" value={ingredient.category} name="category" onChange={handleIngredient} autoComplete="off"/>
                 <label htmlFor="Calories">Calories</label>
-                <input type="text" value={ingredient.calories} name="calories" onChange={handleIngredient}/>
+                <input type="number" value={ingredient.calories} name="calories" onChange={handleIngredient} autoComplete="off"/>
                 <label htmlFor="Notes">Notes</label>
-                <input type="text" value={ingredient.notes} name="notes" onChange={handleIngredient}/>
-                <button name="addProduct" onClick={handleNewIngredient}>Add ingredient</button>
+                <input type="text" value={ingredient.notes} name="notes" onChange={handleIngredient} autoComplete="off"/>
+                <button type="submit" name="addProduct" className="addProduct" onClick={handleNewIngredient}>Add ingredient</button>
             </fieldset>
         </form>
     )
