@@ -33,7 +33,7 @@ function CustomIngredient({ingredient, index, updateIngredient, removeIngredient
     return(
         <div className="ingredient">
             <div className="info">
-                {editing?<input name="name" placeholder={ingredient.name} onChange={handleChange} onSubmit={handleSubmit}/>:<p>{ingredient.name}</p>}
+                {editing?<input name="name" placeholder={ingredient.name} onChange={handleChange} onSubmit={handleSubmit}/>:<h3>{ingredient.name}</h3>}
                 {editing?<input name="category" placeholder={ingredient.category}/>:<p>{ingredient.category}</p>}
                 {editing?<input name="calories" placeholder={ingredient.calories}/>:<p>{ingredient.calories}</p>}
                 {editing?<input name="notes" placeholder={ingredient.notes}/>:<p>{ingredient.notes}</p>}
