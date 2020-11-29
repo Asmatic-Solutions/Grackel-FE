@@ -1,6 +1,6 @@
 import React from 'react';
 
-function AddIcon(props) {
+function AddIcon() {
 
     return (
         <svg height="32px" viewBox="0 0 512 512" width="32px" xmlns="http://www.w3.org/2000/svg">
