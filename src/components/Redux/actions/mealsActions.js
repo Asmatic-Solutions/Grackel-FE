@@ -13,7 +13,7 @@ export const CREATE_MEAL_FAILURE = "CREATE_MEAL_FAILURE"
 export const addMeal = (meal) =>{
     return (dispatch) => {
         dispatch({type:CREATE_MEAL_START});
-        axiosWithAuth().post("/meal",{meal})
+        axiosWithAuth().post("/meals",meal)
         .then(res=>{
             dispatch({type:CREATE_MEAL_SUCCESS,payload:res.data})
         }).catch(err=>{
@@ -28,7 +28,7 @@ export const getMeal = (time=1,timeperiod="week") =>{
     return (dispatch) => {
         dispatch({type:FETCH_MEAL_START});
         axiosWithAuth()
-        .get(`/meal?time=${time}&timeperiod=${timeperiod}}`)
+        .get(`/meals?time=${time}&timeperiod=${timeperiod}}`)
         .then(res=>{
             dispatch({type:FETCH_MEAL_SUCCESS,payload:res.data})
         }).catch(err=>{
@@ -42,7 +42,7 @@ export const getMeal = (time=1,timeperiod="week") =>{
 export const getMealOn = (date=null) =>{
     return (dispatch) => {
         dispatch({type:FETCH_MEAL_START});
-        axiosWithAuth().get(`/meal/on?date=${date}`) // Append date key 
+        axiosWithAuth().get(`/meals/on?date=${date}`) // Append date key 
         .then(res=>{
             dispatch({type:FETCH_MEAL_SUCCESS,payload:res.data})
         }).catch(err=>{
