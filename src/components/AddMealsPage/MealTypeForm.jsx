@@ -2,7 +2,7 @@ import React,{ useState } from "react";
 
 function MealTypeForm({handleChange}){
     return(
-        <form className="meal-type-form form-wrapper">
+        <form className="meal-type-form form-wrapper wrapper">
             <fieldset className="type">
                 <select defaultValue="title" name="type" onChange={(e)=>{handleChange(e)}}>
                     <option value="title" disabled style={{display:"none"}}>Meal type</option> 
