@@ -48,7 +48,7 @@ function AddMealManuallyPage() {
             <h1 className="title">Add meal manually</h1>
 
             <MealTypeForm handleChange={handleChange}/>
-            <button onClick={handleSubmit} disabled={manual_ingredients.length>0?false:true}>Add meal</button>
+            <button onClick={handleSubmit} disabled={manual_ingredients.length>0?false:true} className='addmeal'>Add meal</button>
 
             <div className="container">
                 <h1>Ingredients</h1>
