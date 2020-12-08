@@ -38,7 +38,6 @@ function AddMealManuallyPage() {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        console.log("meal",{...meal,manual_ingredients})
         dispatch(addMeal({...meal,manual_ingredients}));
     }
 
