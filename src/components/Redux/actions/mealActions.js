@@ -15,7 +15,7 @@ export const addMeal = (meal) =>{
         dispatch({type:CREATE_MEAL_START});
         axiosWithAuth().post("/meals",meal)
         .then(res=>{
-            dispatch({type:CREATE_MEAL_SUCCESS,payload:res.data})
+            dispatch({type:CREATE_MEAL_SUCCESS,payload:res})
         }).catch(err=>{
             console.log(err);
             dispatch({type:CREATE_MEAL_FAILURE,payload:err})
