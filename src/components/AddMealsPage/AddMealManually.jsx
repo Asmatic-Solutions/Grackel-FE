@@ -2,7 +2,7 @@ import React,{ useState } from 'react';
 import AddMealManuallyForm from './AddMealManuallyForm';
 import CustomIngredient from './CustomIngredient';
 import "./AddMealManually.scss";
-import {addMeal} from "../Redux/actions/mealsActions"
+import {addMeal} from "../Redux/actions/mealActions"
 import { useDispatch, connect } from "react-redux";
 import MealTypeForm from './MealTypeForm';
 import AddIcon from "../Icons/AddIcon"
