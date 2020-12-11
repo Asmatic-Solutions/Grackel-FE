@@ -30,7 +30,7 @@ export const getMeal = (time=1,timeperiod="week") =>{
         axiosWithAuth()
         .get(`/meals?time=${time}&timeperiod=${timeperiod}}`)
         .then(res=>{
-            dispatch({type:FETCH_MEAL_SUCCESS,payload:res.data})
+            dispatch({type:FETCH_MEAL_SUCCESS,payload:res})
         }).catch(err=>{
             console.log(err);
             dispatch({type:FETCH_MEAL_FAILURE,payload:err})
@@ -44,7 +44,7 @@ export const getMealOn = (date=null) =>{
         dispatch({type:FETCH_MEAL_START});
         axiosWithAuth().get(`/meals/on?date=${date}`) // Append date key 
         .then(res=>{
-            dispatch({type:FETCH_MEAL_SUCCESS,payload:res.data})
+            dispatch({type:FETCH_MEAL_SUCCESS,payload:res})
         }).catch(err=>{
             console.log(err);
             dispatch({type:FETCH_MEAL_FAILURE,payload:err})

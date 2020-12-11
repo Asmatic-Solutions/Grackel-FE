@@ -27,7 +27,7 @@ export const getDaily = () =>{
         dispatch({type:FETCH_DAILY_START});
         axiosWithAuth().get("/goal/daily")
         .then(res=>{
-            dispatch({type:FETCH_DAILY_SUCCESS,payload:res.data})
+            dispatch({type:FETCH_DAILY_SUCCESS,payload:res})
         }).catch(err=>{
             console.log(err);
             dispatch({type:FETCH_DAILY_FAILURE,payload:err})
