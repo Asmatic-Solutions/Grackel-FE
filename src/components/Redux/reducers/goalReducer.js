@@ -21,7 +21,7 @@ export const goalReducer = (state=initialState,action)=>{
         case FETCH_GOAL_START:
             return {...state}
         case FETCH_GOAL_SUCCESS:
-            return {...state, goal:action.payload.goal}
+            return {...state, goal:action.payload.data.goal}
         case FETCH_GOAL_FAILURE:
             return {...state}
         case CREATE_GOAL_START:
