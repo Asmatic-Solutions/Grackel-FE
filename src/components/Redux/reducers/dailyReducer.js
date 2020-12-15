@@ -1,3 +1,4 @@
+import { act } from "react-dom/test-utils";
 import {
     FETCH_DAILY_START,
     FETCH_DAILY_SUCCESS,
@@ -15,20 +16,21 @@ const initialState = {
 }
 
 export const dailyReducer = (state=initialState,action)=>{
+    console.log(action.payload)
     switch(action.type){
         case FETCH_DAILY_START:
             return{...state,};
         case FETCH_DAILY_SUCCESS:
-           return{...action.payload}
+           return{...action.payload.data}
         case FETCH_DAILY_FAILURE:
-            checkToken(action.payload.response.status)
+            checkToken(action.payload.status)
             return{...state,}
         case ADD_DAILY_START:
             return{...state,};
         case ADD_DAILY_SUCCESS:
             return{...action.payload}
         case ADD_DAILY_FAILURE:
-            checkToken(action.payload.response.status)
+            checkToken(action.payload.status)
             return{...state,}
         default:
             return state

@@ -17,7 +17,7 @@ export const createGoal = (goal) =>{
         dispatch({type:CREATE_GOAL_START});
         axiosWithAuth().post("/goal")
         .then(res=>{
-            dispatch({type:CREATE_GOAL_SUCCESS,payload:res.data})
+            dispatch({type:CREATE_GOAL_SUCCESS,payload:res})
         }).catch(err=>{
             console.log(err);
             dispatch({type:CREATE_GOAL_FAILURE,payload:err})
@@ -31,7 +31,7 @@ export const updateGoal = (goal) =>{
         dispatch({type:UPDATE_GOAL_START});
         axiosWithAuth().put("/goal")
         .then(res=>{
-            dispatch({type:UPDATE_GOAL_SUCCESS,payload:res.data})
+            dispatch({type:UPDATE_GOAL_SUCCESS,payload:res})
         }).catch(err=>{
             console.log(err);
             dispatch({type:UPDATE_GOAL_FAILURE,payload:err})
@@ -45,7 +45,7 @@ export const getGoal = () =>{
         dispatch({type:FETCH_GOAL_START});
         axiosWithAuth().get("/goal")
         .then(res=>{
-            dispatch({type:FETCH_GOAL_SUCCESS,payload:res.data})
+            dispatch({type:FETCH_GOAL_SUCCESS,payload:res})
         }).catch(err=>{
             console.log(err);
             dispatch({type:FETCH_GOAL_FAILURE,payload:err})

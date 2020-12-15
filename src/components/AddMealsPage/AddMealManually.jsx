@@ -2,7 +2,7 @@ import React,{ useState } from 'react';
 import AddMealManuallyForm from './AddMealManuallyForm';
 import CustomIngredient from './CustomIngredient';
 import "./AddMealManually.scss";
-import {addMeal} from "../Redux/actions/mealsActions"
+import {addMeal} from "../Redux/actions/mealActions"
 import { useDispatch, connect } from "react-redux";
 import MealTypeForm from './MealTypeForm';
 import AddIcon from "../Icons/AddIcon"
@@ -38,7 +38,6 @@ function AddMealManuallyPage() {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        console.log("meal",{...meal,manual_ingredients})
         dispatch(addMeal({...meal,manual_ingredients}));
     }
 
@@ -48,7 +47,7 @@ function AddMealManuallyPage() {
             <h1 className="title">Add meal manually</h1>
 
             <MealTypeForm handleChange={handleChange}/>
-            <button onClick={handleSubmit} disabled={manual_ingredients.length>0?false:true}>Add meal</button>
+            <button onClick={handleSubmit} disabled={manual_ingredients.length>0?false:true} className='addmeal'>Add meal</button>
 
             <div className="container">
                 <h1>Ingredients</h1>
