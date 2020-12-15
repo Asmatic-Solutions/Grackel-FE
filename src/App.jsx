@@ -14,7 +14,7 @@ function App() {
       <Switch>
         <Route path="/login" component={LoginPage}/>
         <Route path="/register" component={RegisterPage}/>
-        <PrivateRoute path="/meal/manual" component={AddMealManually}/>
+        <PrivateRoute path="/meals/manual" component={AddMealManually}/>
 
         <PrivateRoute exact path="/" component={HomePage}/>
       </Switch>
