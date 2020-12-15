@@ -22,8 +22,7 @@ function MealsPage() {
         <div className="mealsPage">
 
             <h1>Last week meals</h1>
-
-
+            
             <div className="mealsWrapper">
                 {meals.map(meal=><Meal meal={meal} key={meal.date}></Meal>)}
             </div>
