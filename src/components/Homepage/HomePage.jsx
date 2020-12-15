@@ -40,8 +40,8 @@ function AddPage(props) {
   },[dispatch])
 
   const AddKcalAmount = () =>{
-    dispatch(addDaily(kcalAddAmount))
-    // setdailyInformation({...dailyInformation, DailyCount:"0"})
+    dispatch(addDaily(kcalAddAmount));
+    setdailyInformation({...dailyInformation});
   }
 
   const handleKcalChange = (amount) => {
@@ -58,8 +58,8 @@ function AddPage(props) {
   return (
     <div className="add-meals-page">
         <DailySummary dailyInformation={dailyInformation}/>
-        <AddKcalManually handleKcalChange={handleKcalChange} addKcalAmount={AddKcalAmount}></AddKcalManually>
-        <AddMealManually></AddMealManually>
+        <AddKcalManually handleKcalChange={handleKcalChange} addKcalAmount={AddKcalAmount}/>
+        <AddMealManually/>
     </div>
   );
 }
