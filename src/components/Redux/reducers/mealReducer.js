@@ -7,14 +7,17 @@ import {
     CREATE_MEAL_FAILURE
 } from "../actions/mealActions"
 
-const initialState = []
+const initialState = {
+    addedMeal:{},
+    meals:[]
+}
 
 export const mealReducer = (state=initialState,action)=>{
     switch(action.type){
         case FETCH_MEAL_START:
             return{...state};
         case FETCH_MEAL_SUCCESS:
-           return{...action.payload}
+           return{...state,meals:action.payload.data}
         case FETCH_MEAL_FAILURE:
             return{...state,}
         case CREATE_MEAL_START:
