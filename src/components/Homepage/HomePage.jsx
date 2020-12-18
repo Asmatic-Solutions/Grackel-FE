@@ -57,9 +57,9 @@ function AddPage(props) {
   return (
     <div className="add-meals-page">
         <DailySummary dailyInformation={dailyInformation}/>
-        <AddKcalManually handleKcalChange={handleKcalChange} addKcalAmount={AddKcalAmount}/>
-        <HomePageLink title={'Add Meals'} path={'/meals/manual'} info={"Add meals products manually, adding the name, category & amound of energy the product has."}/>
+        <HomePageLink title={'Add Meals'} path={'/meals/manual'} info={""}/>
         <HomePageLink title={'Show Meals'} path={'/meals/'} info={""}/>
+        <AddKcalManually handleKcalChange={handleKcalChange} addKcalAmount={AddKcalAmount}/>
     </div>
   );
 }
