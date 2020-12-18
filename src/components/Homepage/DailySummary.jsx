@@ -3,7 +3,7 @@ import React from 'react';
 
 function DailySummary({dailyInformation}) {
     return (
-    <div className="daily-summary wrapper">
+    <div className="daily-summary wrapper wide">
         <div className="kcalInfo">
             <h1 className="title">Daily Amonut</h1>
             <div className="counter">
