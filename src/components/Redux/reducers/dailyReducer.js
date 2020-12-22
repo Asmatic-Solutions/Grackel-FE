@@ -16,7 +16,6 @@ const initialState = {
 }
 
 export const dailyReducer = (state=initialState,action)=>{
-    console.log(action.payload)
     switch(action.type){
         case FETCH_DAILY_START:
             return{...state,};
@@ -28,7 +27,7 @@ export const dailyReducer = (state=initialState,action)=>{
         case ADD_DAILY_START:
             return{...state,};
         case ADD_DAILY_SUCCESS:
-            return{...action.payload}
+            return{...action.payload.data}
         case ADD_DAILY_FAILURE:
             checkToken(action.payload.status)
             return{...state,}

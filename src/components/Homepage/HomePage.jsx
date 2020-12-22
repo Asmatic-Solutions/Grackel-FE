@@ -1,12 +1,11 @@
-import React,{useState} from 'react';
-import './HomePage.scss';
+import React,{useState,useEffect} from 'react';
 import AddKcalManually from './AddKcalManually';
-import { addDaily, getDaily } from "../Redux/actions/dailyActions"
-import { getGoal } from "../Redux/actions/goalActions"
 import { useDispatch, connect, useSelector } from "react-redux";
-import { useEffect } from 'react';
+import { addDaily, getDaily } from "../Redux/actions/dailyActions";
+import { getGoal } from "../Redux/actions/goalActions";
 import DailySummary from './DailySummary';
-import AddMealManually from './AddMealManually';
+import HomePageLink from './HomePageLink';
+import './HomePage.scss';
 
 function AddPage(props) {
 
@@ -40,8 +39,8 @@ function AddPage(props) {
   },[dispatch])
 
   const AddKcalAmount = () =>{
-    dispatch(addDaily(kcalAddAmount))
-    // setdailyInformation({...dailyInformation, DailyCount:"0"})
+    dispatch(addDaily(kcalAddAmount));
+    setdailyInformation({...dailyInformation});
   }
 
   const handleKcalChange = (amount) => {
@@ -58,8 +57,9 @@ function AddPage(props) {
   return (
     <div className="add-meals-page">
         <DailySummary dailyInformation={dailyInformation}/>
-        <AddKcalManually handleKcalChange={handleKcalChange} addKcalAmount={AddKcalAmount}></AddKcalManually>
-        <AddMealManually></AddMealManually>
+        <HomePageLink title={'Add Meals'} path={'/meals/manual'} info={""}/>
+        <HomePageLink title={'Show Meals'} path={'/meals/'} info={""}/>
+        <AddKcalManually handleKcalChange={handleKcalChange} addKcalAmount={AddKcalAmount}/>
     </div>
   );
 }
